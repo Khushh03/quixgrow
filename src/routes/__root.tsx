@@ -8,6 +8,7 @@ import appCss from "../styles.css?url"
 
 import type { QueryClient } from "@tanstack/react-query"
 import Navbar from "./-components/navbar/navbar"
+import Footer from "./-components/footer/footer"
 
 interface MyRouterContext {
     queryClient: QueryClient
@@ -49,6 +50,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             >
                 <Navbar />
                 {children}
+                <Footer />
                 <TanStackDevtools
                     config={{
                         position: "bottom-right",
