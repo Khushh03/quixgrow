@@ -15,11 +15,11 @@ export default function Hero() {
                         </Link>
                     </Badge>
                     <h1 className="mt-6 max-w-[17ch] text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.25rem] font-semibold leading-[1.2]! tracking-[-0.035em]">
-                        Customized Shadcn UI Blocks & Components
+                        The Future of Learning is Coming Soon
                     </h1>
                     <p className="mt-6 max-w-[60ch] text-lg text-foreground/80">
-                        Explore a collection of Shadcn UI blocks and components, ready to preview and copy. Streamline
-                        your development workflow with easy-to-implement examples.
+                        Experience the next generation of AI-powered education technology. Personalized learning paths,
+                        intelligent tutoring, and revolutionary insights that adapt to your unique learning style.
                     </p>
                     <div className="mt-12 flex items-center gap-4">
                         <Button size="lg" className="rounded-md text-base">
