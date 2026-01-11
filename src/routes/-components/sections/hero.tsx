@@ -1,8 +1,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-import { ArrowUpRight, SearchIcon } from "lucide-react"
-import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from "@/components/ui/input-group"
+import { SearchIcon } from "lucide-react"
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"
 export default function Hero() {
     return (
         <div className="min-h-screen flex items-center justify-center overflow-hidden relative z-10">
@@ -27,7 +26,7 @@ export default function Hero() {
                 }}
             />
 
-            <div className="max-w-(--breakpoint-2xl) w-full mx-auto grid lg:grid-cols-2 gap-6 lg:gap-8 px-4 lg:px-8 pt-12 lg:pt-0">
+            <div className="max-w-(--breakpoint-2xl) w-full mx-auto grid lg:grid-cols-2 gap-6 lg:gap-8 px-4 lg:px-8 py-12 lg:py-0">
                 <div className="my-auto pt-12">
                     <Badge
                         variant="secondary"
