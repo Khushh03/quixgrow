@@ -1,11 +1,32 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { ArrowUpRight } from "lucide-react"
-
+import { ArrowUpRight, SearchIcon } from "lucide-react"
+import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from "@/components/ui/input-group"
 export default function Hero() {
     return (
-        <div className="min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="min-h-screen flex items-center justify-center overflow-hidden relative z-10">
+            {/* Radial Gradient Background */}
+            <div
+                className="absolute inset-0 -z-10"
+                style={{
+                    background: "radial-gradient(125% 125% at 50% 10%, #fff 40%, #7c3aed 100%)",
+                }}
+            />
+            {/* Bottom Fade Grid Background */}
+            <div
+                className="absolute inset-0 -z-10 opacity-40"
+                style={{
+                    backgroundImage: `
+                        linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+                        linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)
+                        `,
+                    backgroundSize: "20px 30px",
+                    WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 100%, #000 60%, transparent 100%)",
+                    maskImage: "radial-gradient(ellipse 70% 60% at 50% 100%, #000 60%, transparent 100%)",
+                }}
+            />
+
             <div className="max-w-(--breakpoint-2xl) w-full mx-auto grid lg:grid-cols-2 gap-6 lg:gap-8 px-4 lg:px-8 pt-12 lg:pt-0">
                 <div className="my-auto pt-12">
                     <Badge
@@ -22,18 +43,27 @@ export default function Hero() {
                         training focusing on real office work, not just theory.
                     </p>
 
-                    <div className="mt-10 flex items-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-                        <Button size="lg" className="rounded-md text-base h-12 max-w-xs w-full">
-                            Start Your Journey <ArrowUpRight className="h-5! w-5!" />
-                        </Button>
-                    </div>
+                    <InputGroup className="mt-8 h-13 max-w-lg bg-background">
+                        <InputGroupInput name="query" placeholder="What do you want to learn?" />
+                        <InputGroupAddon>
+                            <SearchIcon />
+                        </InputGroupAddon>
+                        <InputGroupAddon align="inline-end">
+                            <Button size="lg" className="rounded-md text-base">
+                                <SearchIcon className="h-5! w-5!" />
+                                Search
+                            </Button>
+                        </InputGroupAddon>
+                    </InputGroup>
                 </div>
                 <div
-                    className={cn(
-                        "w-full aspect-video lg:aspect-auto lg:w-[1000px] lg:h-screen bg-accent rounded-xl lg:rounded-none",
-                        "bg-[url('https://picsum.photos/id/3/1000/600')] bg-cover bg-center bg-no-repeat",
-                    )}
+                    // className={cn(
+                    //     "w-full aspect-video lg:aspect-auto lg:w-[1000px] lg:h-screen bg-accent rounded-xl lg:rounded-none",
+                    //     "bg-[url('https://picsum.photos/id/3/1000/600')] bg-cover bg-center bg-no-repeat",
+                    // )}
+                    className="flex place-items-center  "
                 >
+                    <img src="https://quixgrow.com/uploads/system/home-1.png" alt="hero-image" />
                     {/* <ul className="mt-6 relative space-y-3 max-w-[60ch] animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
                         {[
                             {
