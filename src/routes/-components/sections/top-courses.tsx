@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Check } from "lucide-react"
+import { ArrowUpRightIcon, CircleCheck } from "lucide-react"
+import { Separator } from "@/components/ui/separator"
+import { cn } from "@/lib/utils"
 
 const TopCourses = () => {
     const courses = [
         {
-            title: "Complete Tally Training",
+            name: "Complete Tally Training",
             price: "₹599",
             originalPrice: null,
             description: "Ideal for beginners who want to build a strong foundation in accounting software.",
@@ -18,11 +19,11 @@ const TopCourses = () => {
                 "Payroll & Cost Centres",
                 "Balance Sheet & P&L Analysis",
             ],
-            cta: "Enroll in Tally Course",
-            popular: false,
+            buttonText: "Enroll in Tally Course",
+            isPopular: false,
         },
         {
-            title: "Complete GST Practical Training",
+            name: "Complete GST Practical Training",
             price: "₹1999",
             originalPrice: null,
             description: "Complete practical GST knowledge, exactly as required in offices and tax firms.",
@@ -33,29 +34,30 @@ const TopCourses = () => {
                 "Input Tax Credit (ITC) & Invoice Matching",
                 "Late fees, notices & real-life client scenarios",
             ],
-            cta: "Enroll in GST Course",
-            popular: false,
+            buttonText: "Enroll in GST Course",
+            isPopular: true,
         },
         {
-            title: "Complete Accounting & Taxation Program",
+            name: "Complete Accounting & Taxation Program",
             price: "₹5999",
             originalPrice: null,
             description: "A full professional career program for serious learners designed to make you job-ready.",
             features: [
                 "Everything in Course 1 & 2",
                 "Income Tax Return Filing",
-                "TDS & TCS Compliance",
+                "TCS Compliance",
+                "TDS Compliance",
                 "Excel for Accountants",
                 "Real Office-Level Accounting Practice",
             ],
-            cta: "Join Complete Program",
-            popular: true,
+            buttonText: "Join Complete Program",
+            isPopular: false,
         },
     ]
 
     return (
         <section className="py-20 bg-muted/30">
-            <div className="container mx-auto px-6 max-w-(--breakpoint-2xl)">
+            <div className="container mx-auto px-6 max-w-(--breakpoint-xl)">
                 {/* Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Courses & Pricing</h2>
@@ -64,55 +66,44 @@ const TopCourses = () => {
                     </p>
                 </div>
 
-                {/* Course Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-                    {courses.map((course, index) => (
-                        <Card
-                            key={index}
-                            className={`flex flex-col h-full relative border-border ${course.popular ? "shadow-xl border-primary scale-105 z-10" : "shadow-sm hover:shadow-md transition-shadow"}`}
-                        >
-                            {course.popular && (
-                                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                                    <Badge className="px-3 py-1 bg-primary text-primary-foreground text-xs uppercase font-bold tracking-wider">
-                                        Best Value
-                                    </Badge>
-                                </div>
+                <div className="mt-12 sm:mt-16 max-w-(--breakpoint-xl) mx-auto grid grid-cols-1 lg:grid-cols-3 items-center gap-10 lg:gap-0">
+                    {courses.map((course) => (
+                        <div
+                            key={course.name}
+                            className={cn(
+                                "bg-card relative border p-7 rounded-xl lg:rounded-none lg:first:rounded-l-xl lg:last:rounded-r-xl overflow-hidden",
+                                {
+                                    "border-2 border-primary py-12 rounded-xl! shadow-2xl": course.isPopular,
+                                },
                             )}
-
-                            <CardHeader>
-                                <CardTitle className="text-2xl font-bold">{course.title}</CardTitle>
-                                <CardDescription className="text-sm mt-2 font-medium">
-                                    {course.description}
-                                </CardDescription>
-                            </CardHeader>
-
-                            <CardContent className="flex-1">
-                                <div className="mb-6">
-                                    <span className="text-4xl font-bold">{course.price}</span>
-                                    {course.title.includes("Tally") && (
-                                        <span className="text-muted-foreground text-sm ml-2">Only</span>
-                                    )}
-                                </div>
-
-                                <ul className="space-y-3 mb-6">
-                                    {course.features.map((feature, idx) => (
-                                        <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
-                                            <Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" />
-                                            <span>{feature}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </CardContent>
-
-                            <CardFooter>
-                                <Button
-                                    className={`w-full ${course.popular ? "bg-primary hover:bg-primary/90" : ""}`}
-                                    variant={course.popular ? "default" : "outline"}
-                                >
-                                    {course.cta}
-                                </Button>
-                            </CardFooter>
-                        </Card>
+                        >
+                            {course.isPopular && (
+                                <Badge className="absolute top-0 right-0 rounded-none px-5 py-1 uppercase rounded-bl-lg">
+                                    Most Popular
+                                </Badge>
+                            )}
+                            <h3 className="text-lg font-medium">{course.name}</h3>
+                            <p className="mt-2 text-4xl font-semibold">{course.price}</p>
+                            <p className="mt-4 text-sm text-muted-foreground">{course.description}</p>
+                            <Separator className="my-6" />
+                            <p className="text-lg font-medium">Features</p>
+                            <ul className="space-y-2 mt-2">
+                                {course.features.map((feature) => (
+                                    <li key={feature} className="flex items-start gap-2">
+                                        <CircleCheck className="h-4 w-4 mt-1 text-green-600" />
+                                        {feature}
+                                    </li>
+                                ))}
+                            </ul>
+                            <Button
+                                variant={course.isPopular ? "default" : "outline"}
+                                size="lg"
+                                className="w-full mt-6"
+                            >
+                                {course.buttonText}
+                                <ArrowUpRightIcon />
+                            </Button>
+                        </div>
                     ))}
                 </div>
             </div>
