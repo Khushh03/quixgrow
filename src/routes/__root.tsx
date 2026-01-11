@@ -15,26 +15,43 @@ interface MyRouterContext {
 }
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
-    head: () => ({
-        meta: [
-            {
-                charSet: "utf-8",
-            },
-            {
-                name: "viewport",
-                content: "width=device-width, initial-scale=1",
-            },
-            {
-                title: "TanStack Start Starter",
-            },
-        ],
-        links: [
-            {
-                rel: "stylesheet",
-                href: appCss,
-            },
-        ],
-    }),
+    head: () => {
+        const APP_TITLE = "QuixGrow – Practical Accounting & Taxation Training"
+        const APP_DESCRIPTION =
+            "Job-oriented Tally, GST & Income Tax courses with real office training. Affordable fees. Lifetime support."
+        const APP_URL = "https://quixgrow.com"
+        const APP_IMAGE = `${APP_URL}/og-image.jpg`
+        return {
+            meta: [
+                { charSet: "utf-8" },
+                { name: "viewport", content: "width=device-width, initial-scale=1" },
+                { title: APP_TITLE },
+                { name: "description", content: APP_DESCRIPTION },
+                {
+                    name: "keywords",
+                    content:
+                        "accounting training, GST course, Tally ERP, income tax filing, practical accounting, job-ready accountant, QuixGrow, online accounting course India",
+                },
+                // Open Graph
+                { property: "og:type", content: "website" },
+                { property: "og:title", content: APP_TITLE },
+                { property: "og:description", content: APP_DESCRIPTION },
+                { property: "og:image", content: APP_IMAGE },
+                { property: "og:url", content: APP_URL },
+                { property: "og:site_name", content: "QuixGrow" },
+                // Twitter
+                { name: "twitter:card", content: "summary_large_image" },
+                { name: "twitter:title", content: APP_TITLE },
+                { name: "twitter:description", content: APP_DESCRIPTION },
+                { name: "twitter:image", content: APP_IMAGE },
+                { name: "twitter:url", content: APP_URL },
+            ],
+            links: [
+                { rel: "stylesheet", href: appCss },
+                { rel: "canonical", href: APP_URL },
+            ],
+        }
+    },
 
     shellComponent: RootDocument,
 })
