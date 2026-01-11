@@ -12,12 +12,12 @@ export default function Trainer() {
                         {/* Decorative background element */}
                         <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-transparent rounded-3xl -rotate-3 scale-[0.95] z-0" />
 
-                        <Card className="relative overflow-hidden border-border z-10 bg-card/50 backdrop-blur-xs">
+                        <Card className="p-0 relative overflow-hidden border-border z-10 bg-card/50 backdrop-blur-xs">
                             <CardContent className="p-0">
                                 <div className="aspect-4/3 bg-muted relative">
                                     {/* Placeholder for trainer image */}
                                     <div className="absolute inset-0 flex items-center justify-center text-muted-foreground bg-secondary/30">
-                                        <Avatar className="h-48 w-48 rounded-2xl">
+                                        <Avatar className="h-48 lg:h-64 w-48 lg:w-64 rounded-2xl">
                                             <AvatarImage src="https://github.com/shadcn.png" alt="Ankit Raj" />
                                             <AvatarFallback className="rounded-2xl text-4xl">AR</AvatarFallback>
                                         </Avatar>
