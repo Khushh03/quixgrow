@@ -4,7 +4,7 @@ import { ArrowUpRightIcon, CircleCheck } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
 
-const TopCourses = () => {
+const CoursesPricing = () => {
     const courses = [
         {
             name: "Complete Tally Training",
@@ -111,4 +111,4 @@ const TopCourses = () => {
     )
 }
 
-export default TopCourses
+export default CoursesPricing
