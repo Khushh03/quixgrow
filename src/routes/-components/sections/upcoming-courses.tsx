@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card"
 
 const UpcomingCourses = () => {
     return (
-        <div className="max-w-(--breakpoint-xl) mx-auto py-16 px-6 xl:px-0">
+        <div className="max-w-(--breakpoint-2xl) mx-auto py-16 px-6 xl:px-0">
             <div className="grid lg:grid-cols-3 gap-12 items-start">
                 {/* left side content */}
                 <div className="lg:col-span-1">

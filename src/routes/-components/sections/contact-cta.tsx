@@ -6,7 +6,7 @@ import { Mail, Phone } from "lucide-react"
 export default function ContactCTA() {
     return (
         <footer className="py-20 bg-background border-t border-border">
-            <div className="container mx-auto px-6 max-w-(--breakpoint-xl)">
+            <div className="container mx-auto px-6 max-w-(--breakpoint-2xl)">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
                     <div className="space-y-8">
                         <div>

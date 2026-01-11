@@ -11,7 +11,7 @@ export default function TargetAudience() {
 
     return (
         <section className="py-20 bg-background">
-            <div className="container mx-auto px-6 max-w-(--breakpoint-xl)">
+            <div className="container mx-auto px-6 max-w-(--breakpoint-2xl)">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="order-2 lg:order-1 relative h-full min-h-[400px] rounded-2xl overflow-hidden bg-accent/20">
                         {/* Placeholder for audience image - using a pattern or abstract shape for now if no image provided */}

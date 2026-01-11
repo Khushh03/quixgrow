@@ -33,7 +33,7 @@ export default function WhyChooseUs() {
 
     return (
         <section className="py-20 bg-muted/30">
-            <div className="container mx-auto px-6 max-w-(--breakpoint-xl)">
+            <div className="container mx-auto px-6 max-w-(--breakpoint-2xl)">
                 <div className="text-center max-w-2xl mx-auto mb-16">
                     <Badge
                         variant="outline"

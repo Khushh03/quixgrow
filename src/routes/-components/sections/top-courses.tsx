@@ -55,7 +55,7 @@ const TopCourses = () => {
 
     return (
         <section className="py-20 bg-muted/30">
-            <div className="container mx-auto px-6 max-w-(--breakpoint-xl)">
+            <div className="container mx-auto px-6 max-w-(--breakpoint-2xl)">
                 {/* Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Courses & Pricing</h2>

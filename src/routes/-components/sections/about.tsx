@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge"
 export default function About() {
     return (
         <section className="py-20 bg-muted/30">
-            <div className="container mx-auto px-6 max-w-(--breakpoint-xl)">
+            <div className="container mx-auto px-6 max-w-(--breakpoint-2xl)">
                 <div className="flex flex-col items-center text-center space-y-8">
                     <Badge variant="outline" className="text-sm py-1 px-4 border-primary/20 bg-primary/5 text-primary">
                         About QuixGrow
