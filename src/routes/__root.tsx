@@ -66,8 +66,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             // className="dark"
             >
                 <Navbar />
-                {children}
-                <Footer />
+                <div className="flex flex-col min-h-screen">
+                    {children}
+                    <Footer />
+                </div>
                 <TanStackDevtools
                     config={{
                         position: "bottom-right",
