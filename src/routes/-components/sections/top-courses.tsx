@@ -1,130 +1,117 @@
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Heart, Star, ArrowRightLeft, Clock } from "lucide-react"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Check } from "lucide-react"
 
 const TopCourses = () => {
     const courses = [
         {
-            title: "Learn GST",
-            reviews: "0 (0 Reviews)",
-            description: "Master the fundamentals of Goods and Services Tax (GST) with this comprehensive course.",
-            currentPrice: "₹499",
-            originalPrice: "₹999",
-            duration: "Hours",
-            level: "Beginner",
-            imageColor: "bg-blue-50",
-            imageContent: "GST",
+            title: "Complete Tally Training",
+            price: "₹599",
+            originalPrice: null,
+            description: "Ideal for beginners who want to build a strong foundation in accounting software.",
+            features: [
+                "Accounting fundamentals",
+                "Company creation, Groups & Ledgers",
+                "All voucher entries",
+                "Inventory Management & GST Setup",
+                "Payroll & Cost Centres",
+                "Balance Sheet & P&L Analysis",
+            ],
+            cta: "Enroll in Tally Course",
+            popular: false,
         },
         {
-            title: "Learn Accounting & GST",
-            reviews: "0 (0 Reviews)",
-            description: "Learn how to manage GST filing, TDS calculations, and compliance with tax regulations.",
-            currentPrice: "₹5999",
-            originalPrice: "",
-            duration: "Hours",
-            level: "Beginner",
-            imageColor: "bg-blue-50",
-            imageContent: "Accounting",
+            title: "Complete GST Practical Training",
+            price: "₹1999",
+            originalPrice: null,
+            description: "Complete practical GST knowledge, exactly as required in offices and tax firms.",
+            features: [
+                "GST Basics, Law & Registration Process",
+                "Complete GST Portal Navigation",
+                "Return Filing (GSTR-1, GSTR-3B)",
+                "Input Tax Credit (ITC) & Invoice Matching",
+                "Late fees, notices & real-life client scenarios",
+            ],
+            cta: "Enroll in GST Course",
+            popular: false,
         },
         {
-            title: "Excel Mastery: From Basics to Advanced Techniques",
-            reviews: "0 (0 Reviews)",
-            description: "Unlock the full potential of Excel with our comprehensive Excel Masterclass.",
-            currentPrice: "₹699",
-            originalPrice: "₹3999",
-            duration: "Hours",
-            level: "Beginner",
-            imageColor: "bg-green-100",
-            imageContent: "Excel",
+            title: "Complete Accounting & Taxation Program",
+            price: "₹5999",
+            originalPrice: null,
+            description: "A full professional career program for serious learners designed to make you job-ready.",
+            features: [
+                "Everything in Course 1 & 2",
+                "Income Tax Return Filing",
+                "TDS & TCS Compliance",
+                "Excel for Accountants",
+                "Real Office-Level Accounting Practice",
+            ],
+            cta: "Join Complete Program",
+            popular: true,
         },
     ]
 
     return (
-        <section className="py-20 bg-background">
-            <div className="container mx-auto px-4 max-w-7xl">
+        <section className="py-20 bg-muted/30">
+            <div className="container mx-auto px-6 max-w-(--breakpoint-xl)">
                 {/* Header */}
-                <div className="mb-12">
-                    <div className="relative inline-block">
-                        <h2 className="text-3xl md:text-4xl font-bold text-foreground">Top courses</h2>
-                        {/* Yellow underline effect */}
-                        <svg
-                            className="absolute -bottom-2 left-0 w-full h-3 text-yellow-400"
-                            viewBox="0 0 100 10"
-                            preserveAspectRatio="none"
-                        >
-                            <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
-                        </svg>
-                    </div>
-                    <p className="mt-6 text-muted-foreground">
-                        These are the most popular courses among learners worldwide
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Courses & Pricing</h2>
+                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Choose the right path for your career. High-quality practical training at affordable prices.
                     </p>
                 </div>
 
                 {/* Course Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
                     {courses.map((course, index) => (
                         <Card
                             key={index}
-                            className="pt-0 overflow-hidden border border-border shadow-sm hover:shadow-lg transition-shadow duration-300 group bg-card"
+                            className={`flex flex-col h-full relative border-border ${course.popular ? "shadow-xl border-primary scale-105 z-10" : "shadow-sm hover:shadow-md transition-shadow"}`}
                         >
-                            {/* Image Section */}
-                            <div
-                                className={`relative aspect-[1.5] ${course.imageColor} flex items-center justify-center p-6`}
-                            >
-                                <button className="absolute top-3 right-3 p-1.5 rounded-full bg-white/80 hover:bg-white text-gray-400 hover:text-red-500 transition-colors z-10">
-                                    <Heart className="w-5 h-5" />
-                                </button>
-
-                                <span className="text-2xl font-bold text-slate-700 opacity-50">
-                                    {course.imageContent}
-                                </span>
-
-                                {/* Beginner Badge */}
-                                <div className="absolute bottom-4 right-0 bg-pink-100 text-pink-500 text-xs font-semibold px-3 py-1 rounded-l-full shadow-xs">
-                                    {course.level}
+                            {course.popular && (
+                                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                                    <Badge className="px-3 py-1 bg-primary text-primary-foreground text-xs uppercase font-bold tracking-wider">
+                                        Best Value
+                                    </Badge>
                                 </div>
-                            </div>
+                            )}
 
-                            {/* Content Section */}
-                            <CardContent className="p-5">
-                                <h3 className="font-bold text-lg text-card-foreground mb-2 line-clamp-2 min-h-[3.5rem]">
-                                    {course.title}
-                                </h3>
-
-                                <div className="flex items-center justify-between mb-3">
-                                    <div className="flex items-center gap-1">
-                                        <Star className="w-4 h-4 text-gray-300 fill-gray-100" />
-                                        <span className="text-xs text-muted-foreground">{course.reviews}</span>
-                                    </div>
-                                    <Button
-                                        size="sm"
-                                        variant="ghost"
-                                        className="h-8 bg-indigo-500 hover:bg-indigo-600 text-white gap-1.5 rounded-md px-3 text-xs font-normal"
-                                    >
-                                        <ArrowRightLeft className="w-3.5 h-3.5" />
-                                        Compare
-                                    </Button>
-                                </div>
-
-                                <p className="text-sm text-muted-foreground line-clamp-2 mb-4 h-10">
+                            <CardHeader>
+                                <CardTitle className="text-2xl font-bold">{course.title}</CardTitle>
+                                <CardDescription className="text-sm mt-2 font-medium">
                                     {course.description}
-                                </p>
+                                </CardDescription>
+                            </CardHeader>
 
-                                <div className="flex items-center justify-between pt-4 border-t border-border mt-auto">
-                                    <div className="flex items-baseline gap-2">
-                                        <span className="text-xl font-bold text-foreground">{course.currentPrice}</span>
-                                        {course.originalPrice && (
-                                            <span className="text-sm text-muted-foreground line-through decoration-slate-400">
-                                                {course.originalPrice}
-                                            </span>
-                                        )}
-                                    </div>
-                                    <div className="flex items-center gap-1.5 text-muted-foreground">
-                                        <Clock className="w-4 h-4 text-indigo-500" />
-                                        <span className="text-sm">Hours</span>
-                                    </div>
+                            <CardContent className="flex-1">
+                                <div className="mb-6">
+                                    <span className="text-4xl font-bold">{course.price}</span>
+                                    {course.title.includes("Tally") && (
+                                        <span className="text-muted-foreground text-sm ml-2">Only</span>
+                                    )}
                                 </div>
+
+                                <ul className="space-y-3 mb-6">
+                                    {course.features.map((feature, idx) => (
+                                        <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                                            <Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" />
+                                            <span>{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
                             </CardContent>
+
+                            <CardFooter>
+                                <Button
+                                    className={`w-full ${course.popular ? "bg-primary hover:bg-primary/90" : ""}`}
+                                    variant={course.popular ? "default" : "outline"}
+                                >
+                                    {course.cta}
+                                </Button>
+                            </CardFooter>
                         </Card>
                     ))}
                 </div>

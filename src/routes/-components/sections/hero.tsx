@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Link } from "@tanstack/react-router"
-import { ArrowUpRight, CirclePlay } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 
 export default function Hero() {
     return (
@@ -11,22 +11,22 @@ export default function Hero() {
                 <div className="my-auto">
                     <Badge variant="secondary" className="rounded-md py-1 border-border" asChild>
                         <Link to=".">
-                            Just released v1.0.0 <ArrowUpRight className="ml-1 size-4" />
+                            New Batch Starting Soon <ArrowUpRight className="ml-1 size-4" />
                         </Link>
                     </Badge>
-                    <h1 className="mt-6 max-w-[17ch] text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.25rem] font-semibold leading-[1.2]! tracking-[-0.035em]">
-                        The Future of Learning is Coming Soon
+                    <h1 className="mt-6 max-w-[20ch] text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.25rem] font-bold leading-[1.2]! tracking-[-0.035em] bg-clip-text text-transparent bg-linear-to-r from-foreground to-foreground/70 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                        Build a Strong Accounting Career with Real-World Practical Knowledge
                     </h1>
-                    <p className="mt-6 max-w-[60ch] text-lg text-foreground/80">
-                        Experience the next generation of AI-powered education technology. Personalized learning paths,
-                        intelligent tutoring, and revolutionary insights that adapt to your unique learning style.
+                    <p className="mt-6 max-w-[60ch] text-lg text-foreground/80 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+                        Become a next-level accountant. We provide practical, job-oriented accounting and taxation
+                        training focusing on real office work, not just theory.
                     </p>
-                    <div className="mt-12 flex items-center gap-4">
+                    <div className="mt-12 flex items-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
                         <Button size="lg" className="rounded-md text-base">
-                            Get Started <ArrowUpRight className="h-5! w-5!" />
+                            Start Your Journey <ArrowUpRight className="h-5! w-5!" />
                         </Button>
                         <Button variant="outline" size="lg" className="rounded-md text-base shadow-none">
-                            <CirclePlay className="h-5! w-5!" /> Watch Demo
+                            View Courses <ArrowUpRight className="h-5! w-5!" />
                         </Button>
                     </div>
                 </div>
