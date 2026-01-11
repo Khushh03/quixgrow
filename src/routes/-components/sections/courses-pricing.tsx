@@ -59,8 +59,9 @@ const CoursesPricing = () => {
         <section className="py-20 bg-muted/30">
             <div className="container mx-auto px-6 max-w-(--breakpoint-xl)">
                 {/* Header */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-16 flex flex-col items-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Courses & Pricing</h2>
+                    <div className="h-1 w-12 bg-linear-to-r from-purple-500 to-pink-500 rounded-full mb-6" />
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                         Choose the right path for your career. High-quality practical training at affordable prices.
                     </p>

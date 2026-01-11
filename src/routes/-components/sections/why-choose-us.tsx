@@ -34,14 +34,15 @@ export default function WhyChooseUs() {
     return (
         <section className="py-20 bg-muted/30">
             <div className="container mx-auto px-6 max-w-(--breakpoint-2xl)">
-                <div className="text-center max-w-2xl mx-auto mb-16">
+                <div className="text-center max-w-2xl mx-auto mb-12 flex flex-col items-center">
                     <Badge
                         variant="outline"
                         className="mb-4 text-sm py-1 px-4 border-primary/20 bg-primary/5 text-primary"
                     >
                         Why Choose QuixGrow?
                     </Badge>
-                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">What Makes Us Different</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">What Makes Us Different</h2>
+                    <div className="h-1 w-12 bg-linear-to-r from-purple-500 to-pink-500 rounded-full mb-6" />
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

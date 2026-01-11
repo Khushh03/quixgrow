@@ -6,6 +6,7 @@ import WhyChooseUs from "./-components/sections/why-choose-us"
 import TargetAudience from "./-components/sections/target-audience"
 import ContactCTA from "./-components/sections/contact-cta"
 import CoursesPricing from "./-components/sections/courses-pricing"
+import UpcomingCourses from "./-components/sections/upcoming-courses"
 
 export const Route = createFileRoute("/")({
     component: RouteComponent,
@@ -15,6 +16,7 @@ function RouteComponent() {
     return (
         <main>
             <Hero />
+            <UpcomingCourses />
             <About />
             <Trainer />
             <WhyChooseUs />

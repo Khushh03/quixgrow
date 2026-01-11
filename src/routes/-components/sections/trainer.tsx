@@ -44,6 +44,7 @@ export default function Trainer() {
                             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
                                 Learn from an Experienced Industry Professional
                             </h2>
+                            <div className="h-1 w-12 bg-linear-to-r from-purple-500 to-pink-500 rounded-full mb-6" />
                             <p className="text-lg text-muted-foreground leading-relaxed">
                                 I don’t just explain concepts—I teach how accounting work is actually done in offices,
                                 firms, and real job situations.

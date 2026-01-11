@@ -29,6 +29,7 @@ export default function TargetAudience() {
                         <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
                             No Background Restriction – Everyone Can Learn
                         </h2>
+                        <div className="h-1 w-12 bg-linear-to-r from-purple-500 to-pink-500 rounded-full mb-6" />
                         <p className="text-lg text-muted-foreground mb-8">
                             At QuixGrow, no specific educational background is required. We start from basic
                             fundamentals and gradually move towards advanced practical work.

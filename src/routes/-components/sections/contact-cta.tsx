@@ -13,6 +13,7 @@ export default function ContactCTA() {
                             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                                 Start Your Journey with QuixGrow
                             </h2>
+                            <div className="h-1 w-12 bg-linear-to-r from-purple-500 to-pink-500 rounded-full mb-6" />
                             <p className="text-lg text-muted-foreground">
                                 Don’t just learn accounting. Learn how to work like a professional accountant.
                             </p>
