@@ -3,6 +3,7 @@ import { Logo } from "@/components/logo"
 import { NavMenu } from "./nav-menu"
 import { NavigationSheet } from "./navigation-sheet"
 import { ArrowUpRight } from "lucide-react"
+import { WHATSAPP_NUMBER } from "@/lib/constants"
 
 const Navbar = () => {
     return (
@@ -14,8 +15,10 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex items-center gap-3">
-                    <Button>
-                        Get Started <ArrowUpRight />
+                    <Button asChild>
+                        <a href={`http://wa.me/${WHATSAPP_NUMBER}`} target="_blank">
+                            Get Started <ArrowUpRight />
+                        </a>
                     </Button>
                     <div className="md:hidden">
                         <NavigationSheet />
