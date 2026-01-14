@@ -4,7 +4,8 @@ import { courses } from "@/data/courses"
 import { CourseCard } from "@/components/course-card"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"
 import { Button } from "@/components/ui/button"
-import { SearchIcon, ArrowLeft } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { SearchIcon, ArrowLeft, X } from "lucide-react"
 import { useState, useEffect } from "react"
 import { useNavigate } from "@tanstack/react-router"
 
@@ -42,6 +43,11 @@ function SearchPage() {
         })
     }
 
+    const clearSearch = () => {
+        setQuery("")
+        navigate({ to: "/search", search: {} })
+    }
+
     return (
         <div className="flex-1 min-h-screen pt-24 pb-20 px-4 md:px-8">
             <div className="max-w-7xl mx-auto">
@@ -67,20 +73,61 @@ function SearchPage() {
                             </div>
 
                             <form onSubmit={handleSearch} className="w-full md:w-auto">
-                                <InputGroup className="w-full md:w-80 bg-background">
-                                    <InputGroupInput
-                                        value={query}
-                                        onChange={(e) => setQuery(e.target.value)}
-                                        placeholder="Search courses..."
-                                    />
-                                    <InputGroupAddon>
-                                        <Button size="icon" variant="ghost" type="submit">
-                                            <SearchIcon className="h-4 w-4" />
-                                        </Button>
-                                    </InputGroupAddon>
-                                </InputGroup>
+                                <div className="flex gap-2">
+                                    <InputGroup className="w-full md:w-80 bg-background">
+                                        <InputGroupInput
+                                            value={query}
+                                            onChange={(e) => setQuery(e.target.value)}
+                                            placeholder="Search courses..."
+                                        />
+                                        {query && (
+                                            <InputGroupAddon>
+                                                <Button
+                                                    size="icon"
+                                                    variant="ghost"
+                                                    type="button"
+                                                    onClick={() => setQuery("")}
+                                                    className="h-8 w-8 text-muted-foreground hover:text-foreground"
+                                                >
+                                                    <X className="h-4 w-4" />
+                                                </Button>
+                                            </InputGroupAddon>
+                                        )}
+                                    </InputGroup>
+                                    <Button type="submit">Search</Button>
+                                </div>
                             </form>
                         </div>
+
+                        {/* Active Filters */}
+                        {search.query && (
+                            <div className="flex flex-wrap items-center gap-2 pt-2">
+                                <span className="text-sm font-medium text-muted-foreground">Active filters:</span>
+                                <Badge
+                                    variant="secondary"
+                                    className="px-3 py-1 text-sm font-normal gap-2 hover:bg-secondary/80"
+                                >
+                                    Query: {search.query}
+                                    <Button
+                                        variant="ghost"
+                                        size="icon"
+                                        className="h-4 w-4 p-0 hover:bg-transparent text-muted-foreground hover:text-foreground ml-1"
+                                        onClick={clearSearch}
+                                    >
+                                        <X className="h-3 w-3" />
+                                        <span className="sr-only">Remove query filter</span>
+                                    </Button>
+                                </Badge>
+                                <Button
+                                    variant="link"
+                                    size="sm"
+                                    className="text-muted-foreground hover:text-foreground h-auto p-0 ml-2"
+                                    onClick={clearSearch}
+                                >
+                                    Clear all
+                                </Button>
+                            </div>
+                        )}
                     </div>
 
                     {/* Results Grid */}
