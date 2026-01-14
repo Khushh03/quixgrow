@@ -9,14 +9,14 @@ import { SearchIcon, ArrowLeft, X } from "lucide-react"
 import { useState, useEffect } from "react"
 import { useNavigate } from "@tanstack/react-router"
 
-export const Route = createFileRoute("/search/")({
+export const Route = createFileRoute("/courses/")({
     validateSearch: z.object({
         query: z.string().optional(),
     }),
-    component: SearchPage,
+    component: CoursesPage,
 })
 
-function SearchPage() {
+function CoursesPage() {
     const search = Route.useSearch()
     const navigate = useNavigate()
     const [query, setQuery] = useState(search.query || "")
@@ -38,14 +38,14 @@ function SearchPage() {
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault()
         navigate({
-            to: "/search",
+            to: "/courses",
             search: (prev) => ({ ...prev, query: query || undefined }),
         })
     }
 
     const clearSearch = () => {
         setQuery("")
-        navigate({ to: "/search", search: {} })
+        navigate({ to: "/courses", search: {} })
     }
 
     return (
@@ -134,7 +134,15 @@ function SearchPage() {
                     {filteredCourses.length > 0 ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {filteredCourses.map((course) => (
-                                <CourseCard key={course.id} course={course} />
+                                <Link
+                                    key={course.id}
+                                    to={"/courses/$course_id"}
+                                    params={{
+                                        course_id: `${course.id}`,
+                                    }}
+                                >
+                                    <CourseCard course={course} />
+                                </Link>
                             ))}
                         </div>
                     ) : (
@@ -151,7 +159,7 @@ function SearchPage() {
                                 variant="link"
                                 onClick={() => {
                                     setQuery("")
-                                    navigate({ to: "/search", search: {} })
+                                    navigate({ to: "/courses", search: {} })
                                 }}
                                 className="mt-4"
                             >

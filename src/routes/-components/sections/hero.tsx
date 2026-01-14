@@ -50,7 +50,7 @@ export default function Hero() {
                             const formData = new FormData(e.currentTarget)
                             const query = formData.get("query")?.toString()
                             navigate({
-                                to: "/search",
+                                to: "/courses",
                                 search: (prev) => ({ ...prev, query }),
                             })
                         }}
