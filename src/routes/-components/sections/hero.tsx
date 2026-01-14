@@ -2,7 +2,9 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { SearchIcon } from "lucide-react"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"
+import { useNavigate } from "@tanstack/react-router"
 export default function Hero() {
+    const navigate = useNavigate()
     return (
         <div className="min-h-screen flex items-center justify-center overflow-hidden relative z-10">
             {/* Radial Gradient Background */}
@@ -42,18 +44,30 @@ export default function Hero() {
                         training focusing on real office work, not just theory.
                     </p>
 
-                    <InputGroup className="mt-8 h-13 max-w-lg bg-background">
-                        <InputGroupInput name="query" placeholder="What do you want to learn?" />
-                        <InputGroupAddon>
-                            <SearchIcon />
-                        </InputGroupAddon>
-                        <InputGroupAddon align="inline-end">
-                            <Button size="lg" className="rounded-md text-base">
-                                <SearchIcon className="h-5! w-5!" />
-                                Search
-                            </Button>
-                        </InputGroupAddon>
-                    </InputGroup>
+                    <form
+                        onSubmit={(e) => {
+                            e.preventDefault()
+                            const formData = new FormData(e.currentTarget)
+                            const query = formData.get("query")?.toString()
+                            navigate({
+                                to: "/search",
+                                search: (prev) => ({ ...prev, query }),
+                            })
+                        }}
+                    >
+                        <InputGroup className="mt-8 h-13 max-w-lg bg-background">
+                            <InputGroupInput name="query" placeholder="What do you want to learn?" />
+                            <InputGroupAddon>
+                                <SearchIcon />
+                            </InputGroupAddon>
+                            <InputGroupAddon align="inline-end">
+                                <Button size="lg" className="rounded-md text-base">
+                                    <SearchIcon className="h-5! w-5!" />
+                                    Search
+                                </Button>
+                            </InputGroupAddon>
+                        </InputGroup>
+                    </form>
                 </div>
                 <div
                     // className={cn(
