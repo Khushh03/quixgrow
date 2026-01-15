@@ -45,6 +45,16 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => (
                     </ul>
                 </NavigationMenuContent>
             </NavigationMenuItem>
+            <NavigationMenuItem>
+                <Button variant="ghost" asChild>
+                    <Link to="/courses">Courses</Link>
+                </Button>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+                <Button variant="ghost" asChild>
+                    <Link to="/contact">Contact Us</Link>
+                </Button>
+            </NavigationMenuItem>
         </NavigationMenuList>
     </NavigationMenu>
 )

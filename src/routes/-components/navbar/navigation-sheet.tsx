@@ -22,13 +22,19 @@ export const NavigationSheet = () => {
                 <Logo />
 
                 <div className="mt-12 text-base space-y-4">
-                    <Link to="." className="inline-block">
+                    <Link to="." className="block">
                         Home
                     </Link>
 
+                    <Link to="/courses" className="block">
+                        Courses
+                    </Link>
+
                     <div>
-                        <div className="font-bold">Food</div>
-                        <ul className="mt-2 space-y-3 ml-1 pl-4 border-l">
+                        <div className="font-bold uppercase text-xs tracking-wider text-muted-foreground mb-2">
+                            Food
+                        </div>
+                        <ul className="space-y-3 ml-1 pl-4 border-l">
                             {foods.map((foodItem) => (
                                 <li key={foodItem.title}>
                                     <Link to="." className="flex items-center gap-2">
@@ -41,8 +47,10 @@ export const NavigationSheet = () => {
                     </div>
 
                     <div>
-                        <div className="font-bold">Travel</div>
-                        <ul className="mt-2 space-y-3 ml-1 pl-4 border-l">
+                        <div className="font-bold uppercase text-xs tracking-wider text-muted-foreground mb-2">
+                            Travel
+                        </div>
+                        <ul className="space-y-3 ml-1 pl-4 border-l">
                             {travelMenuItems.map((item) => (
                                 <li key={item.title}>
                                     <Link to="." className="flex items-center gap-2">
@@ -53,6 +61,10 @@ export const NavigationSheet = () => {
                             ))}
                         </ul>
                     </div>
+
+                    <Link to="/contact" className="block">
+                        Contact Us
+                    </Link>
                 </div>
             </SheetContent>
         </Sheet>
