@@ -18,7 +18,7 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => (
         <NavigationMenuList className="gap-1 space-x-0 text-sm">
             <NavigationMenuItem>
                 <Button variant="ghost" asChild>
-                    <Link to=".">Home</Link>
+                    <Link to="/">Home</Link>
                 </Button>
             </NavigationMenuItem>
             <NavigationMenuItem>
@@ -44,6 +44,16 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => (
                         ))}
                     </ul>
                 </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+                <Button variant="ghost" asChild>
+                    <Link to="/courses">Courses</Link>
+                </Button>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+                <Button variant="ghost" asChild>
+                    <Link to="/contact">Contact Us</Link>
+                </Button>
             </NavigationMenuItem>
         </NavigationMenuList>
     </NavigationMenu>
